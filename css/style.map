@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"scss/style.scss",
+		"scss/_grid.scss"
+	],
+	"sourcesContent": [
+		"//@import 'reset';\r\n@import 'grid';\r\n",
+		"//Variaveis do grid\r\n$cols:12;\r\n$gutter: 20px;\r\n$l-device: 1200px;\r\n$m-device: 760px;\r\n$s-device: 480px;\r\n\r\n// Box-sizing\r\n\r\n*, *::after, *::before{\r\n    box-sizing: border-box;\r\n}\r\n\r\n// Mixi de media-querie\r\n\r\n@mixin d($size){\r\n    @if $size == l{\r\n        @media screen and (min-width:$l-device){\r\n            @content;\r\n        }\r\n    }\r\n\r\n    @else if $size == m{\r\n        @media screen and (min-width:$m-device) and (max-width:$l-device - 1){\r\n            @content;\r\n        }\r\n    }\r\n\r\n    @else if $size == s{\r\n        @media screen and (max-width:$m-device - 1){\r\n            @content;\r\n        }\r\n    }\r\n}\r\n\r\n// Função do grid\r\n\r\n\r\n\r\n@function grid($col, $offset: false){\r\n    $width: $col / $cols * 100 + \"%\";\r\n    $result: calc(#{$width} - #{$gutter});\r\n\r\n    @if $offset == offset{\r\n        $gutter: $gutter / 2;\r\n        $result: calc(#{$width} + #{$gutter})\r\n    }\r\n\r\n    @return $result;\r\n\r\n}\r\n\r\n// Gera as classes de grid\r\n\r\n@for $i from 1 through $cols{\r\n    .grid-#{$i}{\r\n        width: grid($i);\r\n    }\r\n}\r\n\r\n// Mixis estrutura do grid\r\n\r\n    @mixin grid-stucture{\r\n        float: left;\r\n        min:1px;\r\n        margin-left: $gutter / 2;\r\n        margin-right: $gutter / 2;\r\n        @include d(s){\r\n            width: 100%;\r\n            float: none;\r\n            margin-left: 0px;\r\n            margin-right: 0px;\r\n        }\r\n    }\r\n\r\n    [class^=\"grip-\"]{\r\n        width: 100%;\r\n            float: none;\r\n            margin-left: 0px;\r\n            margin-right: 0px;\r\n    }\r\n\r\n    \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+	],
+	"names": [],
+	"mappings": ";;ACSA,AAAA,CAAC,EAAE,CAAC,AAAA,OAAO,EAAE,CAAC,AAAA,QAAQ,CAAA;EAClB,UAAU,EAAE,UAAU,GACzB;;;AA4CG,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,qBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,gBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,gBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,OAAO,CAAI;EACP,KAAK,EAfA,gBAA4B,GAgBpC;;;AAFD,AAAA,QAAQ,CAAG;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,QAAQ,CAAG;EACP,KAAK,EAfA,sBAA4B,GAgBpC;;;AAFD,AAAA,QAAQ,CAAG;EACP,KAAK,EAfA,iBAA4B,GAgBpC;;;CAkBD,AAAA,AAAA,KAAC,EAAO,OAAO,AAAd,EAAe;EACZ,KAAK,EAAE,IAAI;EACP,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,GAAG;EAChB,YAAY,EAAE,GAAG,GACxB"
+}
